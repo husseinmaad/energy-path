@@ -1,0 +1,17 @@
+
+
+<div class="container">
+<h3>Welcome Back</h3>
+<br />
+  <%= form_tag '/login' do %>
+    <hr>
+    <label>Email:</label>
+    <%= text_field_tag :email%>
+
+    <labelsubl .>Password:</label>
+    <%= password_field_tag :password %>
+
+    <%= submit_tag "Submit" %>
+  <% end %>
+
+</div>

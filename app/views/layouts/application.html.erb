@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>EnergyPath</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo"><img src="<%=image_path("energypath-logo.png")%>"></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <% if current_user %>
+          <li > <%= link_to "#{current_user.username}", user_path(current_user) %></li>
+          <li><%= link_to "Log Out", logout_path %></li>
+          <li><%= link_to "Home", root_path %></li>
+        <% else %>
+          <li><%= link_to "Register", new_user_path %></li>
+          <li><%= link_to "Log In", login_path %></li>
+          <li id="text-nav"><%= link_to "Home", root_path %></li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
+  <br/>
+    <%= yield %>
+    <br />
+    <br />
+    <footer class="page-footer">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">About</h5>
+                <p class="grey-text text-lighten-4">EnergyPath is helping small and medium sized business owners transition to advanced energy; starting with solar.</p>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2014 Copyright Text
+            </div>
+          </div>
+        </footer>
+  </body>
+</html>
